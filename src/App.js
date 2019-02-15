@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+
 import { className } from 'postcss-selector-parser';
 
 /* Components */
@@ -10,8 +13,14 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <Header />
-                <Contact />
+                <Header branding="Contact Manager" />
+                <div className="container">
+                    <Contact
+                        name="John Doe"
+                        email="jd@mail.com"
+                        phone="55-555-555"
+                    />
+                </div>
             </div>
         );
     }
