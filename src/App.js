@@ -5,25 +5,26 @@ import './App.css';
 
 import { className } from 'postcss-selector-parser';
 
+/* Provider */
+import { Provider } from './context';
+
 /* Components */
-import Contact from './components/Contact';
+import Contacts from './components/Contacts';
 import Header from './components/Header';
 
 class App extends Component {
-    render() {
-        return (
-            <div className="App">
-                <Header branding="Contact Manager" />
-                <div className="container">
-                    <Contact
-                        name="John Doe"
-                        email="jd@mail.com"
-                        phone="55-555-555"
-                    />
-                </div>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <Provider>
+        <div className="App">
+          <Header branding="Contact Manager" />
+          <div className="container">
+            <Contacts />
+          </div>
+        </div>
+      </Provider>
+    );
+  }
 }
 
 export default App;

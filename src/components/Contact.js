@@ -1,19 +1,48 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Contact extends Component {
-    render() {
-        const { name, email, phone } = this.props;
+  state = {
+    show: true
+  };
 
-        return (
-            <div className="card card-body mb-3">
-                <h4 className="text-left">{name}</h4>
-                <ul className="list-group">
-                    <li className="list-group-item">{email}</li>
-                    <li className="list-group-item">{phone}</li>
-                </ul>
-            </div>
-        );
-    }
+  onShowClick = () => {
+    this.setState({ show: !this.state.show });
+  };
+
+  onDeleteClick = () => {
+    this.props.deleteClickHandler();
+  };
+
+  render() {
+    const { id, name, email, phone } = this.props.contact;
+
+    return (
+      <div className="card card-body mb-3">
+        <h4 className="text-left">
+          {name}
+          <i
+            className="fa fa-sort-down ml-2"
+            onClick={() => this.onShowClick(id)}
+          />
+          <i
+            className="fa fa-times pull-right"
+            onClick={() => this.onDeleteClick(id)}
+          />
+        </h4>
+        {this.state.show && (
+          <ul className="list-group">
+            <li className="list-group-item">{email}</li>
+            <li className="list-group-item">{phone}</li>
+          </ul>
+        )}
+      </div>
+    );
+  }
 }
+
+Contact.propTypes = {
+  deleteClickHandler: PropTypes.func.isRequired
+};
 
 export default Contact;
