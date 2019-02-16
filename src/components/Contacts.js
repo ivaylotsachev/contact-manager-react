@@ -8,8 +8,6 @@ import { Consumer } from '../context';
 
 class Contacts extends Component {
   deleteClickHandler = id => {
-    console.error('Delete handler', id, Consumer);
-
     const { contacts } = this.state;
     const newContacts = contacts.filter(contact => contact.id !== id);
 
