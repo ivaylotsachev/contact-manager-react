@@ -29,19 +29,19 @@ export class Provider extends Component {
         id: 1,
         name: 'John Doe',
         email: 'gd@mail.com',
-        phone: '555 - 55 - 55'
+        phone: '111-222-3333'
       },
       {
         id: 2,
-        name: 'Stanka Evalarova',
-        email: 'stanka@mail.com',
-        phone: '22 - 33 - 55'
+        name: 'Katrin Johnson',
+        email: 'kartin@mail.com',
+        phone: '222-333-44444'
       },
       {
         id: 3,
-        name: 'Mitko Mitrele',
-        email: 'mitrele@mail.com',
-        phone: '33 - 3333 - 333'
+        name: 'Sam Smith',
+        email: 'samsmith@mail.com',
+        phone: '444-888-0987'
       }
     ],
     dispatch: action => {
