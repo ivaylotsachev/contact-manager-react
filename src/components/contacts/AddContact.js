@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Consumer } from '../../context';
 import uuid from 'uuid';
+import axios from 'axios';
 
 import TextInputGroup from '../layout/TextInputGroup';
 
@@ -18,7 +19,7 @@ class AddContact extends Component {
     e.preventDefault();
 
     const { name, email, phone } = this.state;
-    const newContact = { id: uuid(), name, email, phone };
+    const newContact = { name, email, phone };
 
     /* Check for errors */
     if (name === '') {
@@ -36,10 +37,15 @@ class AddContact extends Component {
       return;
     }
 
-    dispatch({ type: 'ADD_CONTACT', payload: newContact });
-    this.reset();
+    axios
+      .post('https://jsonplaceholder.typicode.com/users', newContact)
+      .then(response => {
+        console.error('response data', response.data);
 
-    this.props.history.push('/');
+        dispatch({ type: 'ADD_CONTACT', payload: response.data });
+        this.reset();
+        this.props.history.push('/');
+      });
   };
 
   reset() {
