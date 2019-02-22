@@ -22,3 +22,7 @@
 [class*='fa-'] {
   cursor: pointer;
 }
+
+.navbar-light .navbar-nav .nav-link.is-active {
+  color: #dc3545;
+}
