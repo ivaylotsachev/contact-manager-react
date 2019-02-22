@@ -4,7 +4,7 @@ import React, { Component, Fragment } from 'react';
 import Contact from './Contact';
 
 /* Consumer */
-import { Consumer } from '../context';
+import { Consumer } from '../../context.js';
 
 class Contacts extends Component {
   render() {

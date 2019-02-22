@@ -9,8 +9,9 @@ import { className } from 'postcss-selector-parser';
 import { Provider } from './context';
 
 /* Components */
-import Contacts from './components/Contacts';
-import Header from './components/Header';
+import Contacts from './components/contacts/Contacts';
+import Header from './components/layout/Header';
+import AddContact from './components/contacts/AddContact';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
         <div className="App">
           <Header branding="Contact Manager" />
           <div className="container">
+            <AddContact />
             <Contacts />
           </div>
         </div>
