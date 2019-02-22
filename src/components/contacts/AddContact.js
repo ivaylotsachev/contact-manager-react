@@ -38,6 +38,8 @@ class AddContact extends Component {
 
     dispatch({ type: 'ADD_CONTACT', payload: newContact });
     this.reset();
+
+    this.props.history.push('/');
   };
 
   reset() {
@@ -54,8 +56,8 @@ class AddContact extends Component {
 
           return (
             <div className="card mb-3 text-left">
-              <div className="card-header mb-2">
-                <h4>Add Product</h4>
+              <div className="card-header mb-2 py-3">
+                <h4 className="mb-0">Add Contact</h4>
               </div>
               <form onSubmit={e => this.onSubmit(e, dispatch)}>
                 <TextInputGroup
@@ -87,7 +89,7 @@ class AddContact extends Component {
                 />
 
                 <div className="px-4 mb-3">
-                  <button type="submit" className="btn btn-block btn-dark">
+                  <button type="submit" className="btn btn-block btn-primary">
                     Add
                   </button>
                 </div>

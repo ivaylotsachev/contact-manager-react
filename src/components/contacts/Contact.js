@@ -3,7 +3,7 @@ import { Consumer } from '../../context';
 
 class Contact extends Component {
   state = {
-    show: true
+    show: false
   };
 
   onShowClick = () => {
@@ -23,28 +23,33 @@ class Contact extends Component {
           const { dispatch } = value;
 
           return (
-            <div className="card card-body mb-3 text-left">
-              <h4 className="text-left">
-                {name}
-                <i
-                  className="fa fa-sort-down ml-2"
-                  onClick={() => this.onShowClick(id)}
-                />
-                <i
-                  className="fa fa-times pull-right icon-delete"
-                  style={{ fontSize: '12px', color: 'red' }}
-                  onClick={() => this.onDeleteClick(id, dispatch)}
-                />
-              </h4>
+            <div className="card mb-4">
+              <div className="card-header">
+                <h6 className="card-title text-left mb-0">
+                  <i
+                    className="fa fa-sort-down mr-3 mb-0"
+                    onClick={() => this.onShowClick(id)}
+                  />
+                  {name}
+                  <i
+                    className="fa fa-times pull-right icon-delete mb-0"
+                    style={{ fontSize: '12px', color: 'red' }}
+                    onClick={() => this.onDeleteClick(id, dispatch)}
+                  />
+                </h6>
+              </div>
+
               {this.state.show && (
-                <ul className="list-group">
-                  <li className="list-group-item">
-                    <b>email:</b> {email}
-                  </li>
-                  <li className="list-group-item">
-                    <b>phone:</b> {phone}
-                  </li>
-                </ul>
+                <div className="card-body text-left">
+                  <ul className="list-group">
+                    <li className="list-group-item">
+                      <b>email:</b> {email}
+                    </li>
+                    <li className="list-group-item">
+                      <b>phone:</b> {phone}
+                    </li>
+                  </ul>
+                </div>
               )}
             </div>
           );
