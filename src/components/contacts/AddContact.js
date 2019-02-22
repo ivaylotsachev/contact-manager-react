@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Consumer } from '../../context';
 import uuid from 'uuid';
 
+import TextInputGroup from '../layout/TextInputGroup';
+
 class AddContact extends Component {
   state = {
     name: '',
@@ -41,41 +43,30 @@ class AddContact extends Component {
                 <h4>Add Product</h4>
               </div>
               <form onSubmit={e => this.onSubmit(e, dispatch)}>
-                <div className="form-group px-4">
-                  <label htmlFor="name">Name</label>
-                  <input
-                    type="text"
-                    className="form-control form-control-lg"
-                    placeholder="enter name"
-                    name="name"
-                    value={name}
-                    onChange={this.onChange}
-                  />
-                </div>
+                <TextInputGroup
+                  name="name"
+                  value={name}
+                  placeholder="Enter name"
+                  label="Name"
+                  onChange={this.onChange}
+                />
 
-                <div className="form-group px-4">
-                  <label htmlFor="name">Email</label>
-                  <input
-                    type="email"
-                    className="form-control form-control-lg"
-                    placeholder="enter email"
-                    name="email"
-                    value={email}
-                    onChange={this.onChange}
-                  />
-                </div>
+                <TextInputGroup
+                  name="email"
+                  type="email"
+                  value={email}
+                  placeholder="Enter email"
+                  label="Email"
+                  onChange={this.onChange}
+                />
 
-                <div className="form-group px-4">
-                  <label htmlFor="name">Phone</label>
-                  <input
-                    type="text"
-                    className="form-control form-control-lg"
-                    placeholder="enter phone"
-                    name="phone"
-                    value={phone}
-                    onChange={this.onChange}
-                  />
-                </div>
+                <TextInputGroup
+                  name="phone"
+                  value={phone}
+                  placeholder="Enter phone"
+                  label="Phone"
+                  onChange={this.onChange}
+                />
 
                 <div className="px-4 mb-3">
                   <button type="submit" className="btn btn-block btn-dark">
