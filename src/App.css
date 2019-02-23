@@ -26,3 +26,11 @@
 .navbar-light .navbar-nav .nav-link.is-active {
   color: #dc3545;
 }
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+}
+.title {
+  display: flex;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Consumer } from '../../context';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 class Contact extends Component {
@@ -31,18 +32,26 @@ class Contact extends Component {
           return (
             <div className="card mb-4">
               <div className="card-header">
-                <h6 className="card-title text-left mb-0">
+                <div className="title">
                   <i
                     className="fa fa-sort-down mr-3 mb-0"
                     onClick={() => this.onShowClick(id)}
                   />
-                  {name}
+                  <h6 className="card-title text-left mb-0">{name}</h6>
+                </div>
+                <div className="action">
+                  <Link to={`contact/edit/${id}`} className="pull-right">
+                    <i
+                      className="fas fa-pencil-alt pull-right mr-2"
+                      style={{ fontSize: '14px', color: 'black' }}
+                    />
+                  </Link>
                   <i
-                    className="fa fa-times pull-right icon-delete mb-0"
-                    style={{ fontSize: '12px', color: 'red' }}
+                    className="fas fa-times pull-right icon-delete mb-0"
+                    style={{ fontSize: '14px', color: 'red' }}
                     onClick={() => this.onDeleteClick(id, dispatch)}
                   />
-                </h6>
+                </div>
               </div>
 
               {this.state.show && (
